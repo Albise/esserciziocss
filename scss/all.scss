@@ -1,0 +1,54 @@
+@import "variables.scss";
+@import "../node_modules/bulma/bulma.sass";
+
+
+
+$primary: orange;
+$primary-inv: purple;
+
+$secondary: pink;
+$secondary-inv: red;
+
+$default: gray;
+$default-inv: black;
+
+$txt: 1.5rem;
+$txt-small: 1rem;
+$txt-big: 3rem;
+
+$txt-weight: bold;
+
+$hover-color: 5%;
+
+@mixin CreateButton($cl,$bg,$txt) {
+  font-size: $txt;
+  font-weight: $txt-weight;
+
+  padding: $txt;
+  text-align: center;
+  display: block;
+
+  background-color: $bg;
+  color: $cl;
+
+  opacity: .8;
+
+  &:hover {
+    opacity: 1;
+    background-color: darken($bg, $hover-color);
+  }
+
+
+}
+
+.btn {
+  &-primary {
+    @include CreateButton($primary,$primary-inv,$txt);
+  }
+  &-secondary {
+    @include CreateButton($secondary,$secondary-inv,$txt-small);
+  }
+  &-default {
+    @include CreateButton($default,$default-inv,$txt-big);
+  }
+}
